@@ -25,7 +25,7 @@
 
 ### #Pull Requests
 
-- Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles and projects that use them.
+- Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles and projects that use them. If none then follow this style: 'fix(server): parse CLI version in update preflight'
 - PR description should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
 - Do not add any co authoring or mentions of models used.
 - **Open a real PR, not a draft.** 
