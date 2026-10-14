@@ -8,13 +8,13 @@
 ## Branch policy
 
 - Before making codebase changes, check the current branch and resolve the target branch first. Use a dedicated branch for highly specific features, larger features or fixes, or other work substantial enough to merit isolation; otherwise use `dev` by default. 
-- Make changes on `main` only when the user authorizes this task on `main`.
-- If currently on `main` and the user made only a generic change request, stop without editing or switching branches. Ask whether to switch to the existing `dev` branch (or authorize creating `dev` if it is absent) or authorize making the changes on `main`. A generic request to change files is not permission to edit `main`.
+- Make changes on `main` only with explicit user authorization. Once the user authorizes changes on `main`, that authorization remains in effect for the rest of the current session/chat/conversation for later requested changes there; once the user authorizes commits on `main`, that commit authorization likewise remains in effect for later commits there. Do not ask again unless the user revokes or narrows the authorization. This does not authorize unrelated work or pushes.
+- If currently on `main` and the user has not explicitly authorized the requested action on `main` and no standing authorization covers it, stop without editing, committing, or switching branches. Ask whether to switch to the existing `dev` branch (or authorize creating `dev` if it is absent) or authorize the requested action on `main`. A generic change request to change files is not permission to edit `main`.
 - On any branch other than `main` or the current task's dedicated work branch, switch to an existing `dev` before editing only if doing so is safe; if switching could disturb existing work, stop and ask. If `dev` is absent, ask before creating it; never silently fall back to another branch.
 
 ## Commit and push preferences
 
-- Automatically commit feature work to `dev` only; never automatically commit feature work to `main` or another branch. If the project has no `dev` branch, ask before creating it; do not create it or commit elsewhere until confirmed. If switching to `dev` could disturb existing work, stop and ask rather than committing elsewhere. For non-feature work, follow repository-specific instructions and do not commit automatically.
+- Commit only when the user asks; otherwise leave changes uncommitted. When committing, put the requested changes on the appropriate branch: feature work on `dev` or the task's dedicated branch; never commit on `main` without explicit user authorization to commit there. Authorization to commit on `main` remains in effect for the conversation as described in the Branch policy. If the project has no `dev` branch, ask before creating it; do not create it or commit elsewhere until confirmed. If switching to `dev` could disturb existing work, stop and ask rather than committing elsewhere.
 - Never push automatically. A request to commit does not authorize a push.
 - Do not push to `main`, merge from `dev` into `main`, or open pull requests. Create additional branches only for work that merits dedicated isolation under the branch policy above.
 - Keep commits small and limited to changes relevant to the request. Check the working tree and staged diff, stage specific files, and leave unrelated work untouched.
@@ -38,7 +38,7 @@
 
 ### Blast Radius
 
-- Never touch production live databases, almost explicitly told to. When a task is adjacent to any of them, name what you're about to do and ask before doing it.
+- Never touch production live databases unless explicitly told to. When a task is adjacent to any of them, name what you're about to do and ask before doing it.
 
 ## Software installation and downloads
 
