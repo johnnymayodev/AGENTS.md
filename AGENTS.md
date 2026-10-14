@@ -62,7 +62,7 @@
 - State assumptions before implementing. If uncertain, ask.
 - If multiple interpretations exist, identify them and ask when the choice could change scope or behavior; don't pick silently.
 - Prefer a simpler approach when it meets the request, mention relevant tradeoffs, and push back when warranted.
-- If something is unclear, stop, name what's confusing, and ask one concise question.
+- If something is unclear, name what's confusing and ask one concise question when the answer could change scope or behavior; otherwise state your assumption and proceed.
 - Treat questions, reviews, and planning requests as read-only.
 
 ### Project guidance
