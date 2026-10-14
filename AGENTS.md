@@ -25,11 +25,12 @@
 
 ### #Pull Requests
 
+- Open a PR only when the user asks; the rules in this section apply when they do.
 - Make sure titles follow conventions from the repo. They should be simple and easy to understand. Conventional commit styles and projects that use them. If none then follow this style: 'fix(server): parse CLI version in update preflight'
 - PR description should aim for simplicity. Open with a minimal, clear description of the problem. Follow up with how you solved it.
 - Do not add any co authoring or mentions of models used.
 - **Open a real PR, not a draft.** 
-- **Rebase onto latest `main` before opening.** Stale branches conflict and waste a review round.
+- **While the branch is local and unpushed, rebase it onto the base branch (usually `main`) before opening.** Once a branch is pushed, do not force-push; merge or rebase the base in and ask before rewriting published history.
 
 ## Security and external actions
 
@@ -123,7 +124,8 @@ These guidelines are working if they lead to fewer unnecessary changes, fewer re
 
 ### Design Work
 
-- Avoid continuously repainting CSS animations (pulse, shimmer, blur, spinners).
+- Follow the project's design system, theme, or design tokens when one exists; these defaults apply only when it doesn't.
+- Avoid continuously repainting CSS animations (pulse, shimmer, animated blur, spinners).
 - Dark modes should be true black background with white primary text.
 - The user's color scheme preference should always be enforced by default.
 
@@ -133,7 +135,7 @@ These guidelines are working if they lead to fewer unnecessary changes, fewer re
 
 ### Bun
 
-- `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express` or `hono` unless specified.
+- `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express` unless specified.
 - `bun:sqlite` for SQLite. Don't use `better-sqlite3`.
 - `Bun.redis` for Redis. Don't use `ioredis`.
 - `Bun.sql` for Postgres. Don't use `pg` or `postgres.js`.
