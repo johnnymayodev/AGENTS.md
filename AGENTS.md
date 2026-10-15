@@ -3,20 +3,21 @@
 ## Global Defaults
 
 - Repo-specific `AGENTS.md` or `AGENTS.override.md` instructions override these defaults.
-- User specific instructions override both.
+- Always respect the standards and conventions that already exist in a codebase; they take precedence over these defaults.
+- User specific instructions override all of these.
 
 ## Branch policy
 
-- Before making codebase changes, check the current branch and resolve the target branch first. Use a dedicated branch for highly specific features, larger features or fixes, or other work substantial enough to merit isolation; otherwise use `dev` by default. 
-- Make changes on `main` only with explicit user authorization. Once the user authorizes changes on `main`, that authorization remains in effect for the rest of the current session/chat/conversation for later requested changes there; once the user authorizes commits on `main`, that commit authorization likewise remains in effect for later commits there. Do not ask again unless the user revokes or narrows the authorization. This does not authorize unrelated work or pushes.
-- If currently on `main` and the user has not explicitly authorized the requested action on `main` and no standing authorization covers it, stop without editing, committing, or switching branches. Ask whether to switch to the existing `dev` branch (or authorize creating `dev` if it is absent) or authorize the requested action on `main`. A generic change request to change files is not permission to edit `main`.
-- On any branch other than `main` or the current task's dedicated work branch, switch to an existing `dev` before editing only if doing so is safe; if switching could disturb existing work, stop and ask. If `dev` is absent, ask before creating it; never silently fall back to another branch.
+- Before making codebase changes, check the current branch. `main` is the only static branch; all work happens on short-lived feature branches created from the latest `main`.
+- Never commit directly to `main`; feature branches merge into `main` only through pull requests.
+- If currently on `main`, create a feature branch from it before editing. If on a branch other than `main` or this task's feature branch, switch to the task's feature branch (creating it from the latest `main` if needed) only if doing so is safe; if switching could disturb existing work, stop and ask.
+- Releases come from tagged commits on `main`; never create release branches or release from untagged commits.
 
 ## Commit and push preferences
 
-- Commit only when the user asks; otherwise leave changes uncommitted. When committing, put the requested changes on the appropriate branch: feature work on `dev` or the task's dedicated branch; never commit on `main` without explicit user authorization to commit there. Authorization to commit on `main` remains in effect for the conversation as described in the Branch policy. If the project has no `dev` branch, ask before creating it; do not create it or commit elsewhere until confirmed. If switching to `dev` could disturb existing work, stop and ask rather than committing elsewhere.
-- Never push automatically. A request to commit does not authorize a push.
-- Do not push to `main`, merge from `dev` into `main`, or open pull requests. Create additional branches only for work that merits dedicated isolation under the branch policy above.
+- Commit only when the user asks; otherwise leave changes uncommitted. When committing, put the requested changes on the task's feature branch; never commit directly to `main`. If switching to the task's feature branch could disturb existing work, stop and ask rather than committing on an unrelated branch.
+- Never push automatically. A request to commit does not authorize a push; a request to open a pull request includes pushing the branch.
+- Do not push directly to `main` or merge into `main` yourself; `main` changes only through pull requests.
 - Keep commits small and limited to changes relevant to the request. Check the working tree and staged diff, stage specific files, and leave unrelated work untouched.
 - Do not automatically commit when relevant checks fail or cannot run. Report the blocker and ask how to proceed. Never weaken tests or bypass hooks to make checks pass.
 - Use a clear, descriptive commit subject and follow the repository's subject/body convention. Do not add `Co-authored-by` or other attribution trailers.
