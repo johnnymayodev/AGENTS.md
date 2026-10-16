@@ -64,7 +64,8 @@
 - If multiple interpretations exist, identify them and ask when the choice could change scope or behavior; don't pick silently.
 - Prefer a simpler approach when it meets the request, mention relevant tradeoffs, and push back when warranted.
 - If something is unclear, name what's confusing and ask one concise question when the answer could change scope or behavior; otherwise state your assumption and proceed.
-- Treat questions, reviews, and planning requests as read-only.
+- Treat questions, reviews, and planning requests as read-only with respect to implementation files.
+- Whenever asked to create or build a plan to fix something, write it to a descriptively named Markdown file in `.agents/plans/` at the project root, creating the directory if needed. Before finishing, ensure the directory is ignored by the project's Git ignore rules; if it is not already ignored, add `.agents/plans/` to the project-root `.gitignore`.
 
 ### Project guidance
 
