@@ -12,12 +12,13 @@
 - Never commit directly to `main`; feature branches merge into `main` only through pull requests.
 - If currently on `main`, create a feature branch from it before editing. If on a branch other than `main` or this task's feature branch, switch to the task's feature branch (creating it from the latest `main` if needed) only if doing so is safe; if switching could disturb existing work, stop and ask.
 - Releases come from tagged commits on `main`; never create release branches or release from untagged commits.
+- Pushing a version tag (for example `v1.4.0`) to trigger a release is allowed when the tag points at a commit already on `main`.
 
 ## Commit and push preferences
 
 - Commit only when the user asks; otherwise leave changes uncommitted. When committing, put the requested changes on the task's feature branch; never commit directly to `main`. If switching to the task's feature branch could disturb existing work, stop and ask rather than committing on an unrelated branch.
 - Never push automatically. A request to commit does not authorize a push; a request to open a pull request includes pushing the branch.
-- Do not push directly to `main` or merge into `main` yourself; `main` changes only through pull requests.
+- Do not push directly to `main` or merge into `main` yourself; `main` changes only through pull requests. Exception: version tags may be pushed to trigger releases once their commit is on `main`.
 - Keep commits small and limited to changes relevant to the request. Check the working tree and staged diff, stage specific files, and leave unrelated work untouched.
 - Do not automatically commit when relevant checks fail or cannot run. Report the blocker and ask how to proceed. Never weaken tests or bypass hooks to make checks pass.
 - Use a clear, descriptive commit subject and follow the repository's subject/body convention. Do not add `Co-authored-by` or other attribution trailers.
