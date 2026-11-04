@@ -2,7 +2,9 @@
 
 ## Global Defaults
 
-- Repo-specific `AGENTS.md` or `AGENTS.override.md` instructions override these defaults.
+- BEFORE any first edit or branch action in a repo, list the repo root for `AGENTS.md`
+  and `AGENTS.override.md` and read every one that exists. `AGENTS.override.md` wins
+  over `AGENTS.md`, which wins over these defaults.
 - Always respect the standards and conventions that already exist in a codebase; they take precedence over these defaults.
 - User specific instructions override all of these.
 
