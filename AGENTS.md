@@ -76,6 +76,11 @@
 - Use the project's documented build, lint, type-check, and test commands.
 - Keep actual project-specific commands in each project's `AGENTS.md` rather than this shared file.
 
+### Documentation
+
+- The project-root `docs/` folder is committed project documentation. Always check it to see how project logic works before changing that logic, and update the relevant files in the same change whenever behavior, architecture, or workflows change.
+- `.agents/docs/` holds gitignored reference documentation for tools and packages the project uses. Treat it as read-only, and search it before searching the web for how a dependency works. Keep it out of version control; if it is not already ignored, add a `.gitignore` to `.agents/docs/` with nothing but a '*' in it.
+
 ### Simplicity First
 
 **Minimum code that solves the problem. Nothing speculative.**
