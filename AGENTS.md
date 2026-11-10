@@ -7,6 +7,7 @@
   over `AGENTS.md`, which wins over these defaults.
 - Always respect the standards and conventions that already exist in a codebase; they take precedence over these defaults.
 - User specific instructions override all of these.
+- When running inside T3 Code, prefer T3's tools over harness-native equivalents when T3 provides them; for browser work use T3's `preview_*` tools, not OpenCode's built-in `browser.*` namespace or Browser skill.
 
 ## Branch policy
 
